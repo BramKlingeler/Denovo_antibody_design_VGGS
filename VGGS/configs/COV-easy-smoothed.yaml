@@ -1,0 +1,13 @@
+seq_len: 149
+task: COV
+cov:
+  csv_path: ${paths.data_dir}/COV/ground_truth.csv
+  task_dir: ${paths.data_dir}/COV
+  filter_percentile: [0.5, 0.6]
+  min_mutant_dist: 0
+  top_quantile: 0.99
+  smoothing_params: tik-gamma-10 #for example
+  nbhd_params: ham1_n-100K #for example
+  smoothed_fname: results #results for example
+  output_dir: null #one extra layer for naming different runs with the same parameters. Defaults to a timestamp
+  
