@@ -1,0 +1,13 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - paths: default.yaml
+  - experiment: null # needs command line override
+
+ckpt_file: predictor.ckpt #change to latest used file, currently changed
+smoothing_method: tik-gamma-10
+exploration_method: ham1
+max_n_seqs: 100_000 #250_000 #lower max for testing
+sequence_columns: sequence
+results_file: results

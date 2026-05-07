@@ -1,0 +1,28 @@
+# @package _global_
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+defaults:
+  - _self_
+  - paths: default.yaml
+  - extras: default.yaml
+  - experiment: null # needs command line override
+  - debug: null
+  - optional local: default
+
+data:
+  csv_path: null # must be null
+  cluster_cutoff: 128
+  max_visits: 1
+  clustering: True
+
+run:
+  max_epochs: 40 #10 default
+  run_name: temp-${experiment.temperature}-ngibbs-${experiment.gibbs_samples}-epochs-${run.max_epochs} #run-name can easily be changed
+  debug: False
+  seed: 1
+  save_cluster_centers: False
+  
+
+# task name, determines output directory path
+task_name: GWG
