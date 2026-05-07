@@ -1,0 +1,12 @@
+seq_len: 149
+task: COV
+cov:
+  csv_path: ${paths.data_dir}/COV/ground_truth.csv
+  task_dir: ${paths.data_dir}/COV
+  filter_percentile: [0.5, 0.6]
+  min_mutant_dist: 0
+  top_quantile: 0.99
+  smoothing_params: unsmoothed
+  nbhd_params: null
+  smoothed_fname: null
+  output_dir: null 
