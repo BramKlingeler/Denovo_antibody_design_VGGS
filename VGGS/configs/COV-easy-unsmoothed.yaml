@@ -1,0 +1,11 @@
+task: COV
+method: ggs 
+results_name: eval_run_new
+topk: 128
+gt_csv: ${paths.data_dir}/COV/ground_truth.csv
+oracle_dir: ${paths.ckpt_dir}/COV/mutations_0/percentile_0.0_1.0
+ggs_samples_dir: ${paths.ckpt_dir}/COV/mutations_0/percentile_0.5_0.6/dWJS/easy_multi/all_seed #unsmoothed/02_12_2026_17_05/samples/temp-0.1-ngibbs-1000-epochs-20 # needs to be filled in for dWJS: dWJS/easy/all_denovo
+baselines_samples_dir: null # may be filled in to compare with baselines
+predictor_dir: null #can be filled in to evaluate with a predictor (not fully tested)
+topk_sampling: greedy
+epoch_filter: null #'last'

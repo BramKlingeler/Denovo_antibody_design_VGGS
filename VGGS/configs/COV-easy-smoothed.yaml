@@ -1,0 +1,5 @@
+predictor_dir: ${paths.root_dir}/ckpt/COV/mutations_0/percentile_0.5_0.6/tik-gamma-0.001_smoothed/ham1_n-100K/03_01_2026_13_46 # needs to be filled in by user
+temperature: 0.1
+gibbs_samples: 1500
+verbose: False
+ckpt_name: last.ckpt
