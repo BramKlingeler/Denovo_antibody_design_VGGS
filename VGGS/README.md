@@ -19,7 +19,7 @@ You can install GGS by following the steps below:
 
 ```bash
 #clone the repository
-git clone https://github.com/kirjner/GGS.git
+git clone https://github.com/BramKlingeler/Denovo_antibody_design_VGGS
 
 # Navigate into the unzipped directory
 cd GGS 
