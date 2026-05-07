@@ -1,10 +1,12 @@
 # GGS
-This codebase implements Gibbs sampling with Graph-based Smoothing v2 (GGS-v2). (v1: [arxiv](https://arxiv.org/abs/2307.00494))
-The trained predictors (smoothed and unsmoothed) for both AAV and GFP across difficulties that were used to generate the results in the main text of the paper are available in the 'ckpt' directory
+This codebase implements an expanded version of Gibbs sampling with Graph-based Smoothing v2 (GGS-v2).
 
-**NOTE1**: v1 of this codebase is available by cloning a previous commit. The current version is, however, a more streamlined implementation, and is recommended for use.
+We introduce Varying length Gibbs sampling with Graph-based Smoothing using gap token alignment from AHo scheme to allow varying length data to be represented in the fitness landscape. Gap tokens expand the vocabulary with a "-" token that can be used to increase sequence will maintaining the original structure.
+The trained predictors (smoothed and unsmoothed) for COV with the Design-Bench task were used to generate the results in the main text of the paper are available in the 'ckpt' directory
 
-**NOTE2**: If you experience any unexpected behavior, please open an issue or contact kirjner@mit.edu
+**NOTE1**: For antibody gap token alignment, please look at ANARCI (https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/sabpred/anarci/)
+
+**NOTE2**: If you experience any unexpected behavior, please open an issue or contact **b.klingeler@student.tudelft.nl**
 
 ## Dependencies 
 
