@@ -1,0 +1,13 @@
+task: COV
+method: ggs 
+results_name: eval_run_new
+topk: 128 #default 128
+gt_csv: ${paths.data_dir}/COV/ground_truth.csv
+oracle_dir: ${paths.ckpt_dir}/COV/mutations_0/percentile_0.0_1.0
+ggs_samples_dir: ${paths.ckpt_dir}/COV/mutations_0/percentile_0.5_0.6/tik-gamma-0.001_smoothed/ham1_n-100K/03_01_2026_13_46/samples/temp-0.1-ngibbs-1502-epochs-40 # needs to be filled in
+baselines_samples_dir: null # may be filled in to compare with baselines
+predictor_dir: null #${paths.root_dir}/ckpt/COV/mutations_0/percentile_0.5_0.6/tik-gamma-1_smoothed/ham1_n-100K/12_23_2025_12_28 # can be filled in to evaluate with a predictor (not fully tested)
+topk_sampling: greedy
+epoch_filter: null #'last'
+
+
