@@ -1,0 +1,4 @@
+predictor_dir: ${paths.root_dir}/ckpt/COV/mutations_0/percentile_0.5_0.6/unsmoothed/predictor # needs to be filled in by user
+save_laplacian: False
+random_seed: 42
+laplacian_path: null
