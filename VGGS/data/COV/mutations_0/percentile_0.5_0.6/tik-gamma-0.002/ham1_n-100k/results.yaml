@@ -1,0 +1,21 @@
+ckpt_file: predictor.ckpt
+smoothing_method: tik-gamma-0.002
+exploration_method: ham1
+max_n_seqs: 100000
+sequence_columns: sequence
+results_file: results
+paths:
+  root_dir: ${oc.env:PROJECT_ROOT}
+  data_dir: ${paths.root_dir}/data/
+  src_dir: ${paths.root_dir}/ggs/
+  config_dir: ${paths.src_dir}/configs/
+  sample_dir: ${paths.root_dir}/samples/
+  ckpt_dir: ${paths.root_dir}/ckpt/
+  log_dir: ${paths.root_dir}/logs/
+  output_dir: ${hydra:runtime.output_dir}
+  work_dir: ${hydra:runtime.cwd}
+experiment:
+  predictor_dir: ${paths.root_dir}/ckpt/COV/mutations_0/percentile_0.5_0.6/unsmoothed/predictor
+  save_laplacian: false
+  random_seed: 42
+  laplacian_path: null
