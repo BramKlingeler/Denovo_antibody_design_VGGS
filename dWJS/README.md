@@ -3,7 +3,8 @@
 This is repository is the adapted code of the open source repository for [discrete Walk-Jump Sampling](https://arxiv.org/abs/2306.12360) developed by [ncfrey](https://github.com/ncfrey), [djberenberg](https://github.com/djberenberg), [kleinhenz](https://github.com/kleinhenz), and [saeedsaremi](https://github.com/saeedsaremi), from [Prescient Design, a Genentech accelerator.](https://gene.com/prescient) which can be found in (https://github.com/prescient-design/walk-jump)
 
 ## Note
-This code has been edited from the original repository to only sample Heavy Chain sequences
+This code has been edited from the original repository to only sample Heavy Chain sequences. Configuration in src/walkjump/hydra_config/ gave the best results for both lowest training loss and highest sampling results.
+
 
 ## Setup
 Assuming you have [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed, clone the repository, navigate inside, and run:
