@@ -1,0 +1,34 @@
+defaults:
+    - _self_
+    - setup: default
+    
+dryrun: false
+
+model:
+  _target_: walkjump.cmdline.utils.instantiate_model_for_sample_mode
+  sample_mode_model_cfg:
+    model_type: denoise
+    checkpoint_path: /home/bram/walk-jump/checkpoints/2026-02-24/09-00-15/last-v3.ckpt
+    denoise_path: null
+
+langevin:
+  sigma: 1.0
+  delta: 0.5
+  lipschitz: 1.0
+  friction: 1.0
+  steps: 1000
+  chunksize: 25
+
+designs:
+  output_csv: outputs/samples/multiseed_all_easy.csv #denovo_null_easy.csv
+  redesign_regions: null #can be specified which regions of the CDR for mutations
+    # - H1
+    # - H2
+    # - H3
+    # - H4
+  seeds: base_seqs.csv
+  num_samples: 6
+  limit_seeds: 128
+  chunksize: 25
+
+device: null
