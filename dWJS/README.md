@@ -1,6 +1,6 @@
-# discrete Walk-Jump Sampling (dWJS)
+# discrete Walk-Jump Sampling (dWJS) for Heavy Chain sequences only
 
-This is the official open source repository for [discrete Walk-Jump Sampling](https://arxiv.org/abs/2306.12360) developed by [ncfrey](https://github.com/ncfrey), [djberenberg](https://github.com/djberenberg), [kleinhenz](https://github.com/kleinhenz), and [saeedsaremi](https://github.com/saeedsaremi), from [Prescient Design, a Genentech accelerator.](https://gene.com/prescient)
+This is repository is the adapted code of the open source repository for [discrete Walk-Jump Sampling](https://arxiv.org/abs/2306.12360) developed by [ncfrey](https://github.com/ncfrey), [djberenberg](https://github.com/djberenberg), [kleinhenz](https://github.com/kleinhenz), and [saeedsaremi](https://github.com/saeedsaremi), from [Prescient Design, a Genentech accelerator.](https://gene.com/prescient) which can be found in (https://github.com/prescient-design/walk-jump)
 
 ## Note
 This code has been edited from the original repository to only sample Heavy Chain sequences
@@ -19,13 +19,6 @@ The available parameters for configuration can be found by running `train` --hel
 The entrypoint `walkjump_sample` is the main driver for training and accepts parameters using Hydra syntax.
 The available parameters for configuration can be found by running `sample` --help or by looking in the `src/walkjump/hydra_config` directory
 
-## Evaluation
-
-### Large molecule descriptors
-Use the [LargeMoleculeDescriptors](src/walkjump/metrics/_large_molecule_descriptors.py) class to compute descriptors for large molecules (proteins, antibodies, etc.) and see the [code for computing Wasserstein distances between samples and reference distributions](src/walkjump/metrics/_get_batch_descriptors.py) for evaluating sample quality.
-
-### Distributional conformity score (DCS)
-See the [DCS code](src/walkjump/conformity/_conformity_score.py) and [DCS README](src/walkjump/conformity/README.md) to evaluate samples.
 
 ## Contributing
 
@@ -38,7 +31,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 
 ## Citations
-If you use the code and/or model, please cite:
+If you use the code and/or model, please cite the paper of Frey et al. the dWJS:
 ```
 @article{frey2023protein,
       title={Protein Discovery with Discrete Walk-Jump Sampling},
