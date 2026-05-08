@@ -1,0 +1,96 @@
+model:
+  optimizer:
+    lr: 0.001
+    weight_decay: 0.0001
+  predictor:
+    n_tokens: 21
+    kernel_size: 5
+    input_size: 256
+    dropout: 0.0
+    name: CNN
+    activation: relu
+    linear: true
+    seq_len: 149
+trainer:
+  default_root_dir: ${paths.output_dir}
+  min_epochs: 1
+  max_epochs: 100
+  accelerator: gpu
+  log_every_n_steps: 1
+  deterministic: false
+data:
+  task: ${experiment.task}
+  seed: 420
+  batch_size: 512
+  pin_memory: false
+  num_workers: 8
+  encoding: onehot
+  alphabet: ARNDCQEGHILKMFPSTWYV-
+  val_samples: 0
+  sequence_column: sequence
+  weighted_sampling: true
+callbacks:
+  model_checkpoint:
+    _target_: pytorch_lightning.callbacks.ModelCheckpoint
+    dirpath: ./ckpt/COV/mutations_0/percentile_0.5_0.6/tik-gamma-0.002_smoothed/ham1_n-100K/03_06_2026_09_41
+    filename: epoch_{epoch:03d}
+    monitor: null
+    mode: max
+    save_last: true
+    save_top_k: 1
+    auto_insert_metric_name: false
+    save_weights_only: false
+    every_n_train_steps: null
+    train_time_interval: null
+    every_n_epochs: null
+    save_on_train_epoch_end: null
+wandb:
+  _target_: pytorch_lightning.loggers.wandb.WandbLogger
+  name: null
+  save_dir: ${paths.output_dir}
+  offline: true
+  project: ${data.task}
+  log_model: false
+model_checkpoint_dir: null
+preprocessed_data_path: null
+num_gpus: 1
+cross_validation: false
+num_folds: 5
+run_name: null
+debug: false
+log: false
+task_name: train_predictor
+tags:
+- dev
+- latest
+ckpt_path: null
+seed: null
+paths:
+  root_dir: ${oc.env:PROJECT_ROOT}
+  data_dir: ${paths.root_dir}/data/
+  src_dir: ${paths.root_dir}/ggs/
+  config_dir: ${paths.src_dir}/configs/
+  sample_dir: ${paths.root_dir}/samples/
+  ckpt_dir: ${paths.root_dir}/ckpt/
+  log_dir: ${paths.root_dir}/logs/
+  output_dir: ${hydra:runtime.output_dir}
+  work_dir: ${hydra:runtime.cwd}
+extras:
+  ignore_warnings: true
+  enforce_tags: false
+  print_config: true
+experiment:
+  seq_len: 149
+  task: COV
+  cov:
+    csv_path: ${paths.data_dir}/COV/ground_truth.csv
+    task_dir: ${paths.data_dir}/COV
+    filter_percentile:
+    - 0.5
+    - 0.6
+    min_mutant_dist: 0
+    top_quantile: 0.99
+    smoothing_params: tik-gamma-0.002
+    nbhd_params: ham1_n-100K
+    smoothed_fname: results
+    output_dir: null
